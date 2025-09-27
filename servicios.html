@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Servicios — GLOBAL SMA</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style1.css" />
+</head>
+<body>
+  <!-- Topbar + Header (igual que en tus otras páginas) -->
+  <div class="topbar">
+    <div class="container">
+      <div class="left">
+        <a href="tel:+56940825491">📞 +56 9 4082 5491</a>
+        <span class="sep">|</span>
+        <a href="mailto:global.sma.spa@gmail.com">✉️ global.sma.spa@gmail.com</a>
+      </div>
+      <div class="right">Servicios profesionales 24/7</div>
+    </div>
+  </div>
+  <header class="header">
+    <div class="container header-inner">
+      <div class="brand">
+        <img src="./assets/global-SMA-logotipo.webp" alt="GLOBAL SMA" class="logo" />
+        <div>
+          <strong>GLOBAL SMA</strong>
+          <div class="tagline">Seguridad, Mantenimiento y Aseo</div>
+        </div>
+      </div>
+      <nav class="nav">
+        <a href="index1.html">Inicio</a>
+        <a href="servicios.html" class="active">Servicios</a>
+        <a href="quienes-somos.html">Quiénes Somos</a>
+        <a href="index1.html#contacto">Contacto</a>
+      </nav>
+      <div class="actions">
+        <a class="btn ghost" href="index1.html#contacto">Solicitar Cotización</a>
+        <a class="btn primary" href="index1.html#contacto">Contáctanos</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO interno -->
+  <section class="hero hero--inner">
+    <div class="overlay"></div>
+    <div class="container hero-content">
+      <nav class="breadcrumbs">
+        <a href="index1.html">Inicio</a> <span>›</span>
+        <span>Servicios</span>
+      </nav>
+      <h1>Servicios</h1>
+      <p>Elige una categoría para ver el detalle de sub-servicios.</p>
+    </div>
+  </section>
+
+  <!-- CATEGORÍAS EXPANDIBLES EN LA MISMA PÁGINA -->
+<section class="section">
+  <div class="container">
+    <div class="section-head">
+      <h2>Categorías</h2>
+      <div class="underline"></div>
+      <p>Haz clic en una categoría para ver sus sub-servicios sin salir de esta página.</p>
+    </div>
+
+    <!-- SEGURIDAD PRIVADA -->
+    <article class="category" id="cat-seguridad" aria-expanded="false">
+      <div class="category__head" data-toggle="#cat-seguridad">
+        <div class="category__media">
+          <img src="assets/seguridad privada.jpg" alt="Seguridad Privada">
+        </div>
+        <div>
+          <h3 class="category__title">Seguridad Privada</h3>
+          <p class="category__desc">
+            Protección de personas e instalaciones con personal acreditado, rondas y respuesta ante incidentes.
+          </p>
+        </div>
+        <div class="category__toggle" aria-hidden="true"></div>
+      </div>
+
+      <div class="category__panel">
+        <div class="service-grid">
+          <article class="service-card" id="control-acceso">
+            <div class="media"><img src="assets/control de acceso.jpg" alt="Control de Acceso y Encomiendas"></div>
+            <div class="body">
+              <h3>Control de Acceso y Encomiendas</h3>
+              <p>Recepción, registro y control de accesos con protocolos verificados y gestión de visitas.</p>
+            </div>
+          </article>
+
+          <article class="service-card" id="rondas-vigilancia">
+            <div class="media"><img src="assets/seguridad privada.jpg" alt="Rondas y Vigilancia"></div>
+            <div class="body">
+              <h3>Rondas y Vigilancia</h3>
+              <p>Rondas programadas, respuesta ante incidentes y reportes con evidencia.</p>
+            </div>
+          </article>
+
+          <article class="service-card" id="monitoreo-cctv">
+            <div class="media"><img src="assets/camara.jpg" alt="Monitoreo y CCTV"></div>
+            <div class="body">
+              <h3>Monitoreo y CCTV</h3>
+              <p>Instalación y soporte a centrales de monitoreo, control de alarmas y verificación en sitio.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </article>
+
+    <!-- MANTENIMIENTO -->
+    <article class="category" id="cat-mantenimiento" aria-expanded="false">
+      <div class="category__head" data-toggle="#cat-mantenimiento">
+        <div class="category__media">
+          <img src="assets/mantencion-porton.jpg" alt="Mantenimiento">
+        </div>
+        <div>
+          <h3 class="category__title">Mantenimiento</h3>
+          <p class="category__desc">
+            Planes preventivos y correctivos para áreas verdes, portones eléctricos, electricidad, iluminación y CCTV.
+          </p>
+        </div>
+        <div class="category__toggle" aria-hidden="true"></div>
+      </div>
+
+      <div class="category__panel">
+        <div class="service-grid">
+          <article class="service-card" id="areas-verdes">
+            <div class="media"><img src="assets/cortar cesped.webp" alt="Áreas Verdes"></div>
+            <div class="body">
+              <h3>Áreas Verdes</h3>
+              <p>Mantención de jardines, podas, riego y limpieza de exteriores.</p>
+            </div>
+          </article>
+
+          <article class="service-card" id="porton-electrico">
+            <div class="media"><img src="assets/mantencion-porton.jpg" alt="Portón Eléctrico"></div>
+            <div class="body">
+              <h3>Portón Eléctrico</h3>
+              <p>Instalación, revisión y reparación de portones automáticos.</p>
+            </div>
+          </article>
+
+          <article class="service-card" id="electricidad-iluminacion">
+            <div class="media"><img src="assets/mantencion-electricista.webp" alt="Electricidad e Iluminación"></div>
+            <div class="body">
+              <h3>Electricidad e Iluminación</h3>
+              <p>Electricidad menor, luminarias, tableros y mantención preventiva.</p>
+            </div>
+          </article>
+
+          <article class="service-card" id="cctv">
+            <div class="media"><img src="assets/poner camara.webp" alt="Cámaras de Vigilancia"></div>
+            <div class="body">
+              <h3>Cámaras de Vigilancia</h3>
+              <p>Instalación y revisión de CCTV, optimización de cobertura y mantenimiento.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </article>
+
+    <!-- ASEO -->
+    <article class="category" id="cat-aseo" aria-expanded="false">
+      <div class="category__head" data-toggle="#cat-aseo">
+        <div class="category__media">
+          <img src="assets/auxiliar-aseo.jpg" alt="Aseo">
+        </div>
+        <div>
+          <h3 class="category__title">Aseo</h3>
+          <p class="category__desc">
+            Limpieza institucional y corporativa con protocolos de higiene, desinfección y control de calidad.
+          </p>
+        </div>
+        <div class="category__toggle" aria-hidden="true"></div>
+      </div>
+
+      <div class="category__panel">
+        <div class="service-grid">
+          <article class="service-card" id="aseo-oficinas">
+            <div class="media"><img src="assets/Limpieza oficina.webp" alt="Limpieza de Oficinas"></div>
+            <div class="body">
+              <h3>Limpieza de Oficinas</h3>
+              <p>Rutinas diarias, semanales o mensuales con protocolos por área y supervisión.</p>
+            </div>
+          </article>
+
+          <article class="service-card" id="aseo-profundidad">
+            <div class="media"><img src="assets/limpieza hospital.webp" alt="Limpieza Profunda y Sanitización"></div>
+            <div class="body">
+              <h3>Limpieza y sanitización a Hospitales</h3>
+              <p>Servicio especializado en limpieza, higiene y sanitización de hospitales y clínicas, garantizando entornos seguros y controlados para pacientes, personal y visitantes.</p>
+            </div>
+          </article>
+
+          <article class="service-card" id="aseo-condominios">
+            <div class="media"><img src="assets/limpieza-condominio.webp" alt="Áreas Comunes y Condominios"></div>
+            <div class="body">
+              <h3>Áreas Comunes y Condominios</h3>
+              <p>Limpieza de pasillos, halls y espacios comunes para mantener ambientes seguros y agradables.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </article>
+
+  </div>
+</section>
+
+
+  <footer class="footer">
+    <div class="container">
+      <p>© <span id="year"></span> GLOBAL SMA — Seguridad, Mantenimiento y Aseo</p>
+      <p>Compromiso con privacidad y cumplimiento.</p>
+    </div>
+  </footer>
+
+  <script src="script1.js"></script>
+</body>
+</html>

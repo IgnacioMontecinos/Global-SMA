@@ -1,0 +1,485 @@
+:root{
+  --blue:#0aa6df;
+  --blue-dark:#1572a1;
+  --gold:#f0b429;
+  --black:#0b0d12;
+  --white:#ffffff;
+  --muted:#eef6fb;
+  --text:#132030;
+}
+
+*{box-sizing:border-box}
+body{
+  margin:0;
+  font-family:"Poppins",system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+  color:var(--text);
+  background:#fff;
+}
+
+/* topbar */
+.topbar{background:var(--blue); color:#eaf6ff; font-size:.9rem}
+.topbar .container{display:flex;justify-content:space-between;align-items:center;padding:.4rem 1rem}
+.topbar a{color:#eaf6ff; text-decoration:none}
+.sep{opacity:.6; margin:0 .5rem}
+
+/* header */
+.header{background:#fff; box-shadow:0 2px 12px rgba(0,0,0,.06); position:sticky; top:0; z-index:50}
+.header-inner{display:flex; align-items:center; justify-content:space-between; padding:.8rem 1rem; gap:1rem}
+.brand{display:flex; align-items:center; gap:.75rem}
+.logo{height:96px; width:auto; object-fit:contain}
+.tagline{font-size:.85rem; color:#475e6f}
+.nav a{margin:0 .6rem; text-decoration:none; color:#27445a; font-weight:600}
+.nav a:hover{color:var(--blue-dark)}
+.nav a.active{ color: var(--blue-dark); text-decoration: underline; }
+.actions{display:flex; gap:.5rem}
+
+.btn{padding:.7rem 1rem; border-radius:999px; text-decoration:none; font-weight:700; display:inline-block; border:2px solid transparent}
+.btn.primary{background:var(--blue); color:#fff}
+.btn.primary:hover{background:var(--blue-dark)}
+.btn.ghost{background:#fff; color:var(--blue-dark); border-color:#cfe9f7}
+.btn.ghost:hover{border-color:var(--blue-dark); color:var(--blue-dark)}
+
+/* hero */
+.hero{position:relative; background:url('assets/servicio-multiuso.webp') center/cover no-repeat; color:#fff; min-height:56vh; display:flex; align-items:center}
+.hero .overlay{position:absolute; inset:0; background:linear-gradient(180deg, rgba(10,166,223,0.85), rgba(21,114,161,0.85))}
+.hero-content{position:relative; padding:3rem 1rem}
+.hero h1{font-size:clamp(2rem,5vw,3.2rem); font-weight:800; line-height:1.1; margin:.6rem 0}
+.hero .accent{color:var(--gold)}
+.hero p{max-width:760px}
+.badge{display:inline-block; padding:.5rem 1rem; border-radius:999px; background:rgba(255,255,255,.2); border:1px solid rgba(255,255,255,.35); font-weight:700}
+.hero-ctas{display:flex; gap:.75rem; margin-top:1rem}
+.pillars{display:flex; gap:.75rem; list-style:none; padding:0; margin:1.2rem 0 0}
+.pillars li{background:rgba(255,255,255,.2); border:1px solid rgba(255,255,255,.35); padding:.5rem .8rem; border-radius:999px}
+
+/* inner hero */
+.hero--inner{min-height:32vh}
+
+/* sections */
+.section{padding:3.5rem 1rem}
+.section.alt{background:var(--muted)}
+.container{max-width:1100px; margin:0 auto}
+h2{font-size:clamp(1.6rem,3.5vw,2.2rem); margin:0 0 1rem}
+.section-lead{color:#5d7282}
+
+/* cards servicios */
+.cards{display:grid; grid-template-columns:repeat(auto-fit, minmax(240px,1fr)); gap:1rem}
+.card{background:#fff; border-radius:16px; box-shadow:0 6px 24px rgba(0,0,0,.06); overflow:hidden}
+.card img{width:100%; height:170px; object-fit:cover}
+.card h3{margin:.8rem 1rem .2rem}
+.card p{margin:0 1rem 1rem; color:#475e6f}
+
+/* ---- Servicios: tarjetas clickeables con hover llamativo ---- */
+.card.link{
+  position: relative;
+  transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
+  border: 1px solid #e9eef5;
+  cursor: pointer;
+}
+.card.link img{
+  transition: transform .25s ease, filter .25s ease;
+  border-radius: 16px 16px 0 0;
+}
+.card.link .mi{
+  margin: .4rem 1rem 1rem;
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  gap: .35rem;
+  color: var(--blue-dark);
+  text-decoration: none;
+}
+.card.link .mi span{ transition: transform .18s ease; }
+
+/* Glow/iluminación y cambio de tono al hover */
+.card.link:hover{
+  transform: translateY(-4px);
+  box-shadow: 0 16px 40px rgba(10,166,223,.22);
+  border-color: rgba(10,166,223,.45);
+}
+.card.link:hover img{
+  transform: scale(1.03);
+  filter: saturate(1.12);
+}
+.card.link:hover .mi span{ transform: translateX(3px); }
+
+/* El <a> que envuelve toda la tarjeta no debe tener subrayado */
+.card.link a.stretched{
+  position:absolute; inset:0; border-radius:16px; text-indent:-9999px; overflow:hidden;
+}
+
+/* steps */
+.steps{display:grid; gap:.6rem; counter-reset:step}
+.steps li{background:#fff; border-left:6px solid var(--blue); padding:.8rem 1rem; border-radius:10px}
+.steps li strong{color:#1b3a4b}
+
+/* perfiles */
+.profiles{display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:1rem}
+.profile{background:#fff; border-left:6px solid var(--gold); padding:1rem; border-radius:12px; box-shadow:0 6px 24px rgba(0,0,0,.06)}
+
+/* --- Perfiles con imagen --- */
+.profiles--with-images{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:1rem;
+}
+.profile-card{
+  background:#fff;
+  border-radius:16px;
+  box-shadow:0 6px 24px rgba(0,0,0,.06);
+  overflow:hidden;
+  border:1px solid #eef2f6;
+  position:relative;
+}
+/* acento lateral dorado (como en tu imagen) */
+.profile-card::before{
+  content:"";
+  position:absolute; left:0; top:0; bottom:0; width:6px;
+  background:var(--gold);
+  border-radius:16px 0 0 16px;
+}
+/* imagen superior */
+.profile-media{
+  width:100%;
+  height:160px;              /* ajusta si quieres más/menos alto */
+  overflow:hidden;
+}
+.profile-media img{
+  width:100%; height:100%;
+  object-fit:cover; display:block;
+}
+/* contenido */
+.profile-body{ padding:1rem; }
+.profile-body h3{ margin:0 0 .5rem; }
+.profile-body p{ margin:0; color:#475e6f; }
+/* lista breve dentro de la card (si la usas) */
+.profile-body ul{
+  margin:.6rem 0 0; padding-left:1rem; color:#56697a;
+}
+
+/* equipo + mision-vision */
+.team{display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:1rem; margin:1rem 0}
+.team article{background:#fff; padding:1rem; border-radius:12px; box-shadow:0 6px 24px rgba(0,0,0,.06)}
+.mv{display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:1rem; margin-top:1rem}
+.mv > div{background:#fff; padding:1rem; border-radius:12px; border-top:6px solid var(--blue-dark)}
+
+/* formulario (versión simple que ya tenías) */
+.form{background:#fff; padding:1rem; border-radius:16px; box-shadow:0 6px 24px rgba(0,0,0,.06)}
+.form .row{display:flex; gap:1rem; flex-wrap:wrap}
+.form input, .form textarea{
+  width:100%; padding:.8rem 1rem; border:1px solid #d5e7f3; border-radius:12px; font:inherit; outline:none;
+}
+.form input:focus, .form textarea:focus{border-color:var(--blue)}
+.form .actions{align-items:center}
+.status{min-height:1.2rem; color:#1b3a4b; margin-top:.6rem}
+
+/* contacto info */
+.contact-block{margin-top:1rem; color:#27445a}
+.contact-block a{color: var(--blue-dark); text-decoration:none}
+
+/* breadcrumbs */
+.breadcrumbs{
+  display:flex; gap:.4rem; align-items:center;
+  font-size:.9rem; margin-bottom:.4rem;
+}
+.breadcrumbs a{ color:#eaf6ff; text-decoration:none; }
+.breadcrumbs span{ color:#eaf6ff; opacity:.85; }
+
+/* footer */
+.footer{background:#0f2333; color:#cfe0ee; padding:2rem 1rem; text-align:center}
+
+/* --- FIX: Tamaño controlado para las fotos del Equipo operativo --- */
+.profiles .profile.has-media {
+  overflow: hidden;               /* recorta bordes si la imagen se sale */
+}
+.profiles .profile.has-media .media {
+  height: 200px;                  /* ajusta 160/180/220 según gusto */
+  overflow: hidden;
+}
+/* en desktop, un poco más altas; en móvil, más bajas */
+@media (min-width: 1024px) {
+  .profiles .profile.has-media .media { height: 220px; }
+}
+@media (max-width: 640px) {
+  .profiles .profile.has-media .media { height: 160px; }
+}
+/* la imagen SIEMPRE debe llenar el alto del contenedor y recortarse */
+.profiles .profile.has-media .media img {
+  width: 100%;
+  height: 100% !important;        /* asegura que no herede otra regla */
+  object-fit: cover;
+  display: block;
+}
+
+/* ===== Contacto (estilo visual mejorado) ===== */
+.contact-section{
+  background: linear-gradient(180deg, rgba(10,166,223,.06), rgba(21,114,161,.05));
+  padding-top: 2.5rem;
+  padding-bottom: 2.5rem;
+}
+.contact-title{
+  text-align:center;
+  font-size: clamp(2rem, 4.8vw, 2.6rem);
+  margin: 0 0 .5rem;
+  color: #0f2a3a;
+  font-weight: 800;
+}
+.contact-subtitle{
+  text-align:center;
+  color:#2e5a71;
+  max-width: 640px;
+  margin: 0 auto 1.25rem;
+  line-height: 1.45;
+}
+.contact-card{
+  background: #ffffff;
+  border-radius: 18px;
+  padding: 1.25rem;
+  max-width: 720px;
+  margin: 0 auto;
+  box-shadow: 0 18px 50px rgba(0,0,0,.08);
+  border: 1px solid #e6f0f6;
+}
+/* Campos */
+.field{ margin-bottom: 1rem; }
+.field label{
+  display:block;
+  font-weight: 700;
+  color:#173b4a;
+  margin: 0 0 .35rem;
+}
+.field .hint{ font-weight: 600; color:#82a5b9; }
+.req{ color:#f28c18; margin-left:.15rem; }
+.input, .textarea{
+  width:100%;
+  border: 2px solid #4a6f87;
+  background: #c4dcee;
+  color:#0f2a3a;
+  border-radius: 14px;
+  padding: .9rem 1rem;
+  outline: none;
+  transition: border-color .18s ease, box-shadow .18s ease, background-color .18s ease;
+  font: inherit;
+}
+.input::placeholder, .textarea::placeholder{ color:#2d576d; }
+.input:focus, .textarea:focus{
+  border-color: var(--blue);
+  background: #f3fbff;
+  box-shadow: 0 0 0 4px rgba(10,166,223,.15);
+}
+/* Botón */
+.contact-btn{
+  width: 100%;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  gap: .6rem;
+  background: var(--blue);
+  color: #fff;
+  border: none;
+  border-radius: 14px;
+  padding: 1rem 1.2rem;
+  font-weight: 800;
+  font-size: 1.05rem;
+  cursor: pointer;
+  transition: transform .15s ease, box-shadow .15s ease, background-color .15s ease;
+  margin-top: .25rem;
+}
+.contact-btn:hover{ background-color: var(--blue-dark); box-shadow: 0 10px 28px rgba(10,166,223,.25); transform: translateY(-1px); }
+.contact-btn:active{ transform: translateY(0); box-shadow:none; }
+.icon-plane{ opacity:.95; }
+/* Estado */
+.status{ margin-top:.6rem; color:#1b3a4b; min-height:1.2rem;}
+
+/* (posible variante anterior sólo si usas .media en #aseo) */
+#aseo{ overflow: hidden; border-radius: 16px; }
+#aseo .media{
+  height: 180px;               /* ajusta a tu gusto */
+  overflow: hidden;
+}
+#aseo .media img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;           /* ahora sí recorta */
+  display: block;
+}
+
+/* ======== NUEVO: IMÁGENES COMPLETAS EN CARDS (sin recortar) ======== */
+/* Usa esto para Aseo y Mantenimiento: <article class="card link contain-media"> */
+.card.contain-media{
+  overflow: hidden;
+  border-radius: 16px;
+  padding: 0; /* evita margen blanco arriba */
+}
+/* marco con relación de aspecto y “letterbox” suave cuando la imagen no llena */
+.card.contain-media .media-contain{
+  width: 100%;
+  aspect-ratio: 16/9;                 /* cambia a 4/3 si la prefieres más alta */
+  background: #f7fbff;                /* color de las franjas si sobra espacio */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-bottom: 1px solid #e9eef5;
+  border-radius: 16px 16px 0 0;
+  overflow: hidden;
+}
+/* la foto se ajusta al marco sin deformarse ni recortarse */
+.card.contain-media .media-contain img{
+  width: 100%;
+  height: 100%;
+  object-fit: contain;                 /* clave: muestra la imagen completa */
+  display: block;
+}
+/* márgenes de contenido tras el marco */
+.card.contain-media h3,
+.card.contain-media p,
+.card.contain-media ul,
+.card.contain-media .mi{
+  margin-left: 1rem;
+  margin-right: 1rem;
+}
+.card.contain-media h3{ margin-top: .9rem; }
+.card.contain-media p{ margin-bottom: 1rem; }
+/* un poco más alto en móviles si quieres */
+@media (max-width: 640px){
+  .card.contain-media .media-contain{ aspect-ratio: 4/3; }
+}
+
+/* ===== Secciones tipo catálogo (como la referencia) ===== */
+.section-head{
+  text-align:center;
+  margin: 0 auto 1.6rem;
+  max-width: 880px;
+}
+.section-head h2{
+  font-size: clamp(1.9rem, 3.8vw, 2.6rem);
+  font-weight: 800;
+  margin: 0 0 .6rem;
+}
+.section-head .underline{
+  width: 110px; height: 4px;
+  margin: .25rem auto 0;
+  background: var(--blue-dark);
+  border-radius: 4px;
+}
+.section-head p{
+  color:#5d7282;
+  line-height:1.6;
+  font-size: 1.05rem;
+  margin: .9rem auto 0;
+}
+
+/* grid y tarjetas grandes */
+.service-grid{
+  display:grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px,1fr));
+  gap: 1.4rem;
+}
+.service-card{
+  background:#fff;
+  border-radius:20px;
+  box-shadow: 0 12px 40px rgba(8,19,31,.08);
+  border: 1px solid #e9eef5;
+  overflow:hidden;
+  transition: transform .18s ease, box-shadow .18s ease;
+}
+.service-card:hover{
+  transform: translateY(-4px);
+  box-shadow: 0 18px 56px rgba(8,19,31,.12);
+}
+.service-card .media{
+  height: 240px;                 /* alto generoso como en la referencia */
+  overflow:hidden;
+}
+@media (min-width: 1200px){ .service-card .media{ height: 260px; } }
+@media (max-width: 640px){ .service-card .media{ height: 200px; } }
+
+.service-card .media img{
+  width:100%; height:100%;
+  object-fit: cover; display:block;
+}
+.service-card .body{
+  padding: 1.15rem 1.4rem 1.6rem;
+  text-align:center;
+}
+.service-card h3{
+  margin: 0 0 .6rem;
+  font-size: 1.25rem;
+}
+.service-card p{
+  margin: 0;
+  color:#546b7b;
+  line-height:1.7;
+}
+
+/* ===== Categorías expandibles en la misma página ===== */
+.category {
+  border-radius: 20px;
+  background: #029fc2;
+  border: 1px solid #e9eef5;
+  box-shadow: 0 12px 40px rgba(8,19,31,.06);
+  overflow: hidden;
+  margin-bottom: 1rem;
+}
+
+/* Cabecera clickable (categoría) */
+.category__head {
+  display: grid;
+  grid-template-columns: 120px 1fr auto;
+  gap: 1rem;
+  align-items: center;
+  padding: 1rem;
+  cursor: pointer;
+  transition: background-color .18s ease;
+}
+.category__head:hover { background-color: #f6fbff; }
+.category__media {
+  height: 86px;
+  border-radius: 14px;
+  overflow: hidden;
+}
+.category__media img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.category__title { margin: 0; font-size: 1.35rem; }
+.category__desc  { margin: .2rem 0 0; color: #546b7b; }
+.category__toggle {
+  font-weight: 800;
+  color: var(--blue-dark);
+}
+
+/* Panel colapsable */
+.category__panel {
+  grid-column: 1 / -1;
+  border-top: 1px solid #668bbe;
+  /* animación suave */
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height .28s ease;
+}
+
+/* Cuando está abierto */
+.category[aria-expanded="true"] .category__panel {
+  max-height: 2000px; /* suficiente para el contenido */
+}
+.category[aria-expanded="true"] .category__toggle::after { content: "▲"; }
+.category[aria-expanded="false"] .category__toggle::after { content: "▼"; }
+
+/* Grid de sub-servicios (reusa tu estilo) */
+.category__panel .service-grid {
+  padding: 1rem;
+}
+
+/* Responsive cabecera */
+@media (max-width: 640px){
+  .category__head { grid-template-columns: 80px 1fr auto; }
+  .category__media { height: 64px; }
+}
+
+/* Forzar descripciones en negro (categorías y tarjetas) */
+.category .category__head .category__desc,
+.category[aria-expanded] .category__panel .service-grid .service-card .body p,
+.section .service-grid .service-card .body p {
+  color: var(--black) !important; /* #0b0d12 */
+}
+.section-head p { 
+  color: var(--black) !important;
+}
+
