@@ -482,4 +482,71 @@ h2{font-size:clamp(1.6rem,3.5vw,2.2rem); margin:0 0 1rem}
 .section-head p { 
   color: var(--black) !important;
 }
+/* ===== Hotfix móvil: evitar corrimientos y overflow ===== */
+html, body {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;           /* corta cualquier desborde horizontal */
+}
+
+.container,
+.section,
+.header,
+.topbar,
+.hero,
+.hero .overlay,
+.hero-content {
+  max-width: 100%;
+}
+
+/* Imágenes responsivas siempre */
+img, svg, video {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Topbar: que haga wrap y no se desborde el mail largo */
+.topbar .container { flex-wrap: wrap; }
+.topbar .left { display: flex; flex-wrap: wrap; gap: .5rem; }
+.topbar a { word-break: break-word; }
+
+/* Header: que el brand/nav/botones bajen en 2 líneas si es necesario */
+@media (max-width: 768px) {
+  .header-inner { flex-wrap: wrap; }
+  .brand { flex: 1 1 100%; }
+  .nav { display: flex; flex-wrap: wrap; gap: .5rem; }
+  .actions { width: 100%; display: flex; gap: .5rem; flex-wrap: wrap; }
+  .actions .btn { flex: 1 1 auto; max-width: 100%; }  /* que no empujen el ancho */
+}
+
+/* Hero: evitar que chips/ctas generen ancho extra */
+.hero-ctas { flex-wrap: wrap; }
+.pillars { flex-wrap: wrap; }
+
+/* Tarjetas/grids: nunca más anchas que el viewport */
+.cards, .service-grid {
+  max-width: 100%;
+  overflow: hidden;   /* por si alguna card intenta salir */
+}
+
+/* Botones: que permitan salto de línea si el texto es muy largo en móvil */
+.btn { white-space: normal; }
+
+/* Evitar que alguna card con hover/transform rompa el ancho en móvil */
+@media (hover: none) {
+  .card.link:hover { transform: none; box-shadow: 0 6px 24px rgba(0,0,0,.06); }
+  .card.link:hover img { transform: none; filter: none; }
+}
+
+/* Ajuste extra por si algún 100vw generó scroll horizontal en iOS */
+[class*="hero"], [class*="overlay"] {
+  width: 100%;
+}
+
+/* Asegurar que las media de perfiles/servicios no estiren el contenedor */
+.profile-media, .category__media, .service-card .media {
+  max-width: 100%;
+  overflow: hidden;
+}
 
