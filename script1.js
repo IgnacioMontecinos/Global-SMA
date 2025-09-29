@@ -28,32 +28,46 @@ if (form) {
   });
 }
 
-// ===== Toggle categorías en la misma página =====
-(function(){
-  const heads = document.querySelectorAll('.category__head[data-toggle]');
-  heads.forEach(h => {
-    h.addEventListener('click', () => {
-      const sel = h.getAttribute('data-toggle');
-      const cat = document.querySelector(sel);
-      const isOpen = cat.getAttribute('aria-expanded') === 'true';
-      // Cerrar las demás (opcional: comenta si quieres múltiples abiertas)
-      document.querySelectorAll('.category[aria-expanded="true"]').forEach(c => {
-        if (c !== cat) c.setAttribute('aria-expanded','false');
-      });
-      // Alternar la seleccionada
-      cat.setAttribute('aria-expanded', isOpen ? 'false' : 'true');
-      // Scroll suave a la categoría
-      if (!isOpen) cat.scrollIntoView({behavior:'smooth', block:'start', inline:'nearest'});
+/// ===== Categorías expandibles (delegación segura)
+(function () {
+  console.log("[GLOBAL SMA] toggle categorías listo");
+
+  // Capturamos clicks en todo el documento y buscamos la cabecera
+  document.addEventListener("click", function (ev) {
+    const head = ev.target.closest(".category__head[data-toggle]");
+    if (!head) return;
+
+    const sel = head.getAttribute("data-toggle");
+    const cat = document.querySelector(sel);
+    if (!cat) {
+      console.warn("No encuentro el selector de categoría:", sel);
+      return;
+    }
+
+    const isOpen = cat.getAttribute("aria-expanded") === "true";
+
+    // Cerrar otras
+    document.querySelectorAll(".category[aria-expanded='true']").forEach(c => {
+      if (c !== cat) c.setAttribute("aria-expanded", "false");
     });
+
+    // Alternar la actual
+    cat.setAttribute("aria-expanded", isOpen ? "false" : "true");
+
+    if (!isOpen) {
+      // Scroll suave al abrir
+      cat.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
   });
 
-  // Abrir por hash (#cat-seguridad, #cat-mantenimiento, #cat-aseo)
+  // Si vienen con hash (#cat-seguridad, etc.) abrimos esa
   if (location.hash) {
     const cat = document.querySelector(location.hash);
-    if (cat && cat.classList.contains('category')) {
-      cat.setAttribute('aria-expanded','true');
-      setTimeout(()=>cat.scrollIntoView({behavior:'smooth', block:'start'}), 120);
+    if (cat && cat.classList.contains("category")) {
+      cat.setAttribute("aria-expanded", "true");
+      setTimeout(() => cat.scrollIntoView({ behavior: "smooth", block: "start" }), 80);
     }
   }
 })();
+
 
